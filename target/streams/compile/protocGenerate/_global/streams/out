@@ -1,0 +1,4 @@
+[debug] Invalidating cache (input changed)
+[info] Compiling 1 protobuf files to C:\Users\andreu.codina\IdeaProjects\scala3\target\scala-2.13\src_managed\main
+[debug] protoc options:
+[debug] Compiling schema C:\Users\andreu.codina\IdeaProjects\scala3\src\main\protobuf\helloWorld.proto
