@@ -11,10 +11,10 @@ class EmailSender(logger: Logger) {
 }
 
 object EmailSender {
-  val live: ZLayer[Has[Logger], Nothing, Has[EmailSender]] = {
-    ZLayer.fromService[Logger, EmailSender](logger =>
-      new EmailSender(logger))
-  }
+  val live: ZLayer[Has[Logger], Nothing, Has[EmailSender]] =
+    (new EmailSender(_)).toLayer
+//    ZLayer.fromService[Logger, EmailSender](logger =>
+//      new EmailSender(logger))
 
   // accessor
   def send(message: String): ZIO[Has[EmailSender], IOException, Int] =
