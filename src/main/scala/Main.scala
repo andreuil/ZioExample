@@ -6,11 +6,9 @@ import zio.console._
 
 object Main extends App {
   override def run(args: List[String]): URIO[ZEnv, ExitCode] =
-    Logger.logLine("Example")
-//  ZIO.accessM[Logger](_.logLine("Example"))
-//  ZIO.access[Logger](_.logLine("Example"))
-//      EmailSender.send("Example")
-      .provideLayer(Console.live >>> Logger.live)
+//    Logger.logLine("Example")
+      EmailSender.send("Example")
+      .provideLayer(AppEnv)
       .exitCode
 
   val AppEnv = (Console.live >>> Logger.live) ++ (Logger.live >>> EmailSender.live)
