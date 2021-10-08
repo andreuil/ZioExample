@@ -14,8 +14,9 @@ class Logger(
 
 object Logger {
   val live: ZLayer[Console, Nothing, Has[Logger]] =
-    ZLayer.fromService[Console.Service, Logger](console =>
-      new Logger(console))
+    (new Logger(_)).toLayer
+  //    ZLayer.fromService[Console.Service, Logger](console =>
+//      new Logger(console))
 
   // accessor
   def logLine(message: String): ZIO[Has[Logger], IOException, Unit] =
