@@ -3,18 +3,18 @@ import zio.console.Console
 import java.io.IOException
 
 class Logger(
-  console: Console
+  console: Console.Service
 ) {
   def logLine(line: String): ZIO[Any, IOException, Unit] = { // IO[IOException, Unit]
     for {
-      _ <- console.get.putStrLn(s"logger: $line")
+      _ <- console.putStrLn(s"logger: $line")
     } yield ()
   }
 }
 
 object Logger {
-  val live: ZLayer[Has[Console], Nothing, Has[Logger]] =
-    ZLayer.fromService[Console, Logger](console =>
+  val live: ZLayer[Console, Nothing, Has[Logger]] =
+    ZLayer.fromService[Console.Service, Logger](console =>
       new Logger(console))
 
   // accessor
