@@ -1,5 +1,6 @@
 package features.user
 
+import services.EmailSender
 import zhttp.http._
 import zio.ZIO
 
@@ -11,7 +12,9 @@ object HttpRoutes {
       ZIO.succeed(
         Response.text(
           request.getBodyAsString.getOrElse("No body!")))
-    case Method.GET -> prefixPath / "text" => ZIO.succeed(Response.text("Textttt"))
-    case Method.GET -> prefixPath / "a" => ZIO.succeed(Response.text("All ok"))
+    case Method.GET -> prefixPath / "text" => ZIO.succeed(Response.text("Text"))
+    case Method.GET -> prefixPath / "message" =>
+      EmailSender.send("Example")
+        .orElse(ZIO.succeed(Response.text("Error")))
   }
 }
