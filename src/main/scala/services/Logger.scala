@@ -18,8 +18,4 @@ case class Logger(
 object Logger {
   val live: ZLayer[Console, Nothing, Has[Logger]] =
     (new Logger(_)).toLayer
-
-  // accessor
-  def logLine(message: String): ZIO[Has[Logger], IOException, Unit] =
-    ZIO.accessM(_.get.logLine(message))
 }

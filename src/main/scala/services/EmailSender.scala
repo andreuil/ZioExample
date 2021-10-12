@@ -13,8 +13,4 @@ case class EmailSender(logger: Logger) {
 object EmailSender {
   val live: ZLayer[Has[Logger], Nothing, Has[EmailSender]] =
     (new EmailSender(_)).toLayer
-
-  // accessor
-  def send(message: String): ZIO[Has[EmailSender], IOException, Int] =
-    ZIO.accessM(_.get.send(message))
 }

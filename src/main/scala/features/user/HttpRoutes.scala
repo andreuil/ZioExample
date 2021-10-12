@@ -14,14 +14,12 @@ object HttpRoutes {
           request.getBodyAsString.getOrElse("No body!")))
     case Method.GET -> prefixPath / "text" => ZIO.succeed(Response.text("Text"))
     case Method.GET -> prefixPath / "message1" =>
-      EmailSender.send("Example")
+      ZIO.serviceWith[EmailSender](_.send("Example"))
         .map(x => Response.text(x.toString))
         .orElse(ZIO.succeed(Response.text("Error")))
     case Method.GET -> prefixPath / "message2" =>
       for {
-//        number <- EmailSender.send("Example")
         number <- ZIO.serviceWith[EmailSender](_.send("Example"))
-//        number <- ZIO.accessM[Has[EmailSender]](_.get.send("Example"))
       } yield Response.text(number.toString)
   }
 }
