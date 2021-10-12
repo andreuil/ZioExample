@@ -2,7 +2,7 @@ package features.user
 
 import services.EmailSender
 import zhttp.http._
-import zio.ZIO
+import zio.{Has, ZIO}
 
 object HttpRoutes {
   private val prefixPath = Root / "users"
@@ -19,8 +19,9 @@ object HttpRoutes {
         .orElse(ZIO.succeed(Response.text("Error")))
     case Method.GET -> prefixPath / "message2" =>
       for {
-        number <- EmailSender.send("Example")
-//        number <- ZIO.accessM[EmailSender](_.send("Example"))
+//        number <- EmailSender.send("Example")
+        number <- ZIO.serviceWith[EmailSender](_.send("Example"))
+//        number <- ZIO.accessM[Has[EmailSender]](_.get.send("Example"))
       } yield Response.text(number.toString)
   }
 }
