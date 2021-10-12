@@ -18,4 +18,4 @@ libraryDependencies ++= Seq(
 )
 libraryDependencies += "dev.zio" %% "zio-config" % "1.0.10"
 libraryDependencies += "dev.zio" %% "zio-config-magnolia" % "1.0.10"
-//libraryDependencies += "dev.zio" %% "zio-config-typesafe" % "1.0.10"
+libraryDependencies += "dev.zio" %% "zio-config-typesafe" % "1.0.10"

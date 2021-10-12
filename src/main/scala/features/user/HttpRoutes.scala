@@ -1,8 +1,9 @@
 package features.user
 
+import common.AppConfiguration
 import services.EmailSender
 import zhttp.http._
-import zio.{Has, ZIO}
+import zio._
 
 object HttpRoutes {
   private val prefixPath = Root / "users"
@@ -21,5 +22,9 @@ object HttpRoutes {
       for {
         number <- ZIO.serviceWith[EmailSender](_.send("Example"))
       } yield Response.text(number.toString)
+    case Method.GET -> prefixPath / "configuration" =>
+      for {
+        configuration <- ZIO.environment[Has[AppConfiguration]]
+      } yield Response.text(configuration.get.database)
   }
 }
