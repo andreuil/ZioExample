@@ -16,3 +16,6 @@ libraryDependencies ++= Seq(
   "com.thesamet.scalapb" %% "scalapb-runtime-grpc" % scalapb.compiler.Version.scalapbVersion,
   "io.grpc" % "grpc-netty" % "1.41.0"
 )
+libraryDependencies += "dev.zio" %% "zio-config" % "1.0.10"
+libraryDependencies += "dev.zio" %% "zio-config-magnolia" % "1.0.10"
+//libraryDependencies += "dev.zio" %% "zio-config-typesafe" % "1.0.10"

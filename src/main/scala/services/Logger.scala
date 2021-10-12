@@ -5,7 +5,7 @@ import zio.console.Console
 
 import java.io.IOException
 
-class Logger(
+case class Logger(
   console: Console.Service
 ) {
   def logLine(line: String): ZIO[Any, IOException, Unit] = { // IO[IOException, Unit]

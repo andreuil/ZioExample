@@ -3,7 +3,7 @@ package services
 import zio._
 import java.io.IOException
 
-class EmailSender(logger: Logger) {
+case class EmailSender(logger: Logger) {
   def send(message: String): ZIO[Any, IOException, Int] =
     for {
       _ <- logger.logLine(message)

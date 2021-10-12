@@ -4,11 +4,12 @@ import zhttp.service._
 import zhttp.service.server.ServerChannelFactory
 import zio._
 import zio.console._
+import zio.config._
 
 object Main extends App {
   override def run(args: List[String]): URIO[ZEnv, ExitCode] = {
     Server.start(8090, routes)
-      .provideCustomLayer(ServerChannelFactory.auto ++ EventLoopGroup.auto(4) ++ AppEnv)
+      .provideCustomLayer(AppEnv)
       .exitCode
   }
 
