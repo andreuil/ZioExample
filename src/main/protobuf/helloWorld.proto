@@ -12,7 +12,8 @@ service HelloWorld {
 
 // The request message containing the user's name.
 message HelloRequest {
-  string name = 1;
+  optional string name = 1;
+  string email = 2;
 }
 
 // The response message containing the greetings

@@ -41,8 +41,10 @@
     <orderEntry type="library" name="sbt: dev.zio:zio-config-magnolia_2.13:1.0.10:jar" level="project" />
     <orderEntry type="library" name="sbt: dev.zio:zio-config-typesafe_2.13:1.0.10:jar" level="project" />
     <orderEntry type="library" name="sbt: dev.zio:zio-config_2.13:1.0.10:jar" level="project" />
+    <orderEntry type="library" name="sbt: dev.zio:zio-prelude_2.13:1.0.0-RC6:jar" level="project" />
     <orderEntry type="library" name="sbt: dev.zio:zio-stacktracer_2.13:1.0.12:jar" level="project" />
-    <orderEntry type="library" name="sbt: dev.zio:zio-streams_2.13:1.0.10:jar" level="project" />
+    <orderEntry type="library" name="sbt: dev.zio:zio-streams_2.13:1.0.11:jar" level="project" />
+    <orderEntry type="library" name="sbt: dev.zio:zio-test_2.13:1.0.11:jar" level="project" />
     <orderEntry type="library" name="sbt: dev.zio:zio_2.13:1.0.12:jar" level="project" />
     <orderEntry type="library" name="sbt: io.d11:zhttp_2.13:1.0.0.0-RC17:jar" level="project" />
     <orderEntry type="library" name="sbt: io.grpc:grpc-api:1.41.0:jar" level="project" />
@@ -67,6 +69,7 @@
     <orderEntry type="library" name="sbt: io.perfmark:perfmark-api:0.23.0:jar" level="project" />
     <orderEntry type="library" name="sbt: org.checkerframework:checker-compat-qual:2.5.5:jar" level="project" />
     <orderEntry type="library" name="sbt: org.codehaus.mojo:animal-sniffer-annotations:1.19:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.portable-scala:portable-scala-reflect_2.13:1.1.1:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang.modules:scala-collection-compat_2.13:2.5.0:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang:scala-library:2.13.6:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang:scala-reflect:2.13.6:jar" level="project" />
