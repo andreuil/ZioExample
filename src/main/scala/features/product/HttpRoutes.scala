@@ -1,4 +1,4 @@
-package features.user
+package features.product
 
 import common.AppConfiguration
 import services.EmailSender
