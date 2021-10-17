@@ -3,9 +3,7 @@ package features.product
 import services.EmailSender
 import zio._
 
-case class Product() {
-  val emailSender = ZIO.serviceWith[EmailSender]
-
+case class Product(emailSender: EmailSender) {
   case class Request(
     email: String,
     password: String
@@ -14,17 +12,13 @@ case class Product() {
   sealed trait Error
   object Foo extends Error
 
-  case class Validator() {
-    def validate() = emailSender(_.send("Example"))
-  }
+  def validate() = ??? // Either[ValidationError, Unit]
 
-  case class Handler() {
-    def handle(request: Request): Either[Error, Response] = {
-      Right(Response(token = "Token"))
-    }
+  def handle(request: Request): Either[Error, Response] = {
+    Right(Response(id = 1))
   }
 
   case class Response(
-    token: String
+    id: Int
   )
 }
